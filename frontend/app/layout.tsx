@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${kiwiMaru.className} antialiased`}
+        className={`${kiwiMaru.className} antialiased mx-auto w-xl`}
       >
         {children}
       </body>
