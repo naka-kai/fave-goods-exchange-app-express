@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        // 型だけ出力する
+        "declaration": true,
+        "emitDeclarationOnly": true,
+
+        // typesディレクトリの中をコンパイルして、dist/typesに.d.tsを出力する
+        "rootDir": "types",
+        "outDir": "dist/types",
+
+        // TSの設定
+        "strict": true,
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "verbatimModuleSyntax": true,
+        "skipLibCheck": true
+    },
+    "include": ["types"]
+}

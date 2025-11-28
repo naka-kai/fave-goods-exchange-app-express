@@ -53,7 +53,7 @@ export default {
     }
 
     // 絞り込み結果を返却
-    res.render('goods/index', { filtered, currentSeries });
+    res.status(200).send({ filtered, currentSeries });
   },
 
   // 各シリーズごと

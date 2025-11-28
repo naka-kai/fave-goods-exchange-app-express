@@ -1,6 +1,11 @@
 import Form from 'next/form';
+import { GoodsIndexResponse } from '@shared/types/goods';
 
-export default function Goods() {
+export default async function Goods() {
+  const data = await fetch('http://localhost:4000/api/v1/goods');
+  const { filtered, currentSeries }: GoodsIndexResponse = await data.json();
+  console.log(currentSeries);
+
   return (
     <div>
       <main className='p-8'>
@@ -10,16 +15,20 @@ export default function Goods() {
             <div className="my-5">
               <select className="border rounded-sm p-1" name="series">
                 <option value="">シリーズを選択してください</option>
-                <option value="1">B9 Unlimited</option>
+                {filtered.map((goods) => (
+                  <option key={goods.id} value={goods.id}>{goods.title}</option>
+                ))}
               </select>
             </div>
 
             <div className="my-5">
               <h3 className="text-xl mb-1">メンバー</h3>
-              <div className="ml-2 mb-0.5">
-                <input className='align-middle mr-1' type="radio" name="member" id="KAI" value="KAI" />
-                <label htmlFor="KAI">KAI</label>
-              </div>
+              {currentSeries.members.map((member) => (
+                <div key={member.member} className="ml-2 mb-1">
+                  <input className='align-middle mr-1' type="radio" name="member" id={member.member} value={member.member} />
+                  <label htmlFor={member.member}>{member.member}</label>
+                </div>
+              ))}
             </div>
 
             <div className="my-5">

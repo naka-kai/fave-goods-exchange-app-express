@@ -43,7 +43,11 @@
     "skipLibCheck": true,
 
     "esModuleInterop": true, // importとrequireの互換性をよくする
-    "forceConsistentCasingInFileNames": true // ファイル名の大文字/小文字の違いによるバグを防ぐ
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字/小文字の違いによるバグを防ぐ
+    "baseUrl": ".",
+    "paths": {
+      "@shared/types/*": ["../shared/dist/types/*"] // パスエイリアス
+    }
   },
   "include": ["src"] // TSにこのフォルダだけを監視させる
 }
