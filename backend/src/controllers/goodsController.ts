@@ -107,17 +107,17 @@ export default {
 
   // 各シリーズごと
   showSeries: (req: Express.Request, res: Express.Response) => {
-    // 渡ってきたシリーズID
+    // 渡ってきたシリーズ
     const series = req.params.series;
 
-    // シリーズIDの存在チェック
+    // シリーズの存在チェック
     if (!series) {
       return res.status(400).send({
-        message: 'シリーズIDが指定されていません。',
+        message: 'シリーズが設定されていません。',
       });
     }
 
-    // シリーズIDの存在チェック
+    // シリーズの存在チェック
     const seriesList = goodsList.find((cSeries) => cSeries.id === series);
 
     // シリーズが見つからなかった場合
