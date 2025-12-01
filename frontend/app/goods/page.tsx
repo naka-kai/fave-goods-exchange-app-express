@@ -4,7 +4,6 @@ import { GoodsIndexResponse } from '@shared/types/goods';
 export default async function Goods() {
   const data = await fetch('http://localhost:4000/api/v1/goods');
   const { filtered, currentSeries }: GoodsIndexResponse = await data.json();
-  console.log(currentSeries);
 
   return (
     <div>
